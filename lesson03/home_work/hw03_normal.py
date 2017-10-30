@@ -2,8 +2,17 @@
 # Напишите функцию, возвращающую ряд Фибоначчи с n-элемента до m-элемента.
 # Первыми элементами ряда считать цифры 1 1
 
-def fibonacci(n, m):
-    pass
+def fibonacci(n,m):
+  
+    s = [1, 1]
+    j = 0
+    for i in range (n,m):
+      while s[j+1] < m:
+        s.append(s[j] + s[j+1])
+        j += 1
+      return s[n-1:m]
+    
+print (fibonacci(5,144))
 
 # Задача-2:
 # Напишите функцию, сортирующую принимаемый список по возрастанию.
@@ -19,6 +28,18 @@ sort_to_max([2, 10, -12, 2.5, 20, -11, 4, 4, 0])
 # Задача-3:
 # Напишите собственную реализацию стандартной функции filter.
 # Разумеется, внутри нельзя использовать саму функцию filter.
+def my_filter(arg, obj):
+  
+  spisok = list()
+  
+  for item in obj:
+    if arg(item):
+      spisok.append(item)
+  return spisok
+
+number_list = range(-15, 15)
+more_than_zero = list(my_filter(lambda x: x > 0, number_list))
+print(more_than_zero)
 
 
 # Задача-4:
